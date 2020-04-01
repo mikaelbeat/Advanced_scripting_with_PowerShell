@@ -1,9 +1,13 @@
 ﻿
 clear
 
+Set-Location D:\Git\github\Advanced_scripting_with_PowerShell\
+
+$date = Get-Date
+
 $output_file = "Data.txt"
 
 $name = Read-Host "Enter your uername"
-$age = Read-Host "Enter your password"
+$email = Read-Host "Enter your email"
 
-Write-Output "perkele" | Add-Content $output_file -Append
+Write-Output "$name, $email, Added at $date" | Out-File $output_file -Append
