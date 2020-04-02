@@ -1,26 +1,29 @@
 ﻿
 clear
 
-Set-Location D:\Git\github\Advanced_scripting_with_PowerShell\
+Set-Location D:\Git\github\Advanced_scripting_with_PowerShell
 
-$exist = false
+$file_location = "D:\Git\github\Advanced_scripting_with_PowerShell\"
 
-while ($exist == false) {
 
-    if (Test-Path .\Kissa.txt) {
+    if (Test-Path $file_location\Kissa.txt) {
         Write-Output "File exist!"
-        $exist = true
     } else {
         Write-Output "File doesn't exist!"
     }
 
-}
 
+$start_time = Get-Date
 
-
-while (!(Test-Path "Kissa.txt")) { 
+while (!(Test-Path $file_location\Kissa.txt)) { 
+    #$start_time = Get-Date
     Start-Sleep 1 
     Write-Output "Waiting for the file to appear"
 }
 
+$end_time = Get-Date
+
 Write-Output "File found!"
+
+
+Write-Output "$start_time --> $end_time" | Out-File Log.txt -Append
